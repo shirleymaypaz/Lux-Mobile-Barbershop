@@ -156,9 +156,10 @@
             <div class="container">
                 <br /><br />
                 <br />
-                <h3 style="text-align:center;">Your message has been received.</h3>
+
                 @if (ViewBag.Message != null)
                 {
+                    <h3 style="text-align:center;">Your message has been received.</h3>
                     <p><div class="thankyou" style="text-align:center;">@ViewBag.Message</div></p>
                 }
             </div>
