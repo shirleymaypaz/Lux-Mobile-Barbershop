@@ -1,4 +1,5 @@
 ﻿using LuxMobile.Models;
+using LuxMobile.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -79,9 +80,10 @@ namespace LuxMobile.Controllers
             _logger = logger;
         }
 
+        //original home page
         public IActionResult Index()
         {
-            return View();
+            return View("Home");
         }
 
         public IActionResult Privacy()
