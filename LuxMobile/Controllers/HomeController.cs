@@ -14,6 +14,8 @@ namespace LuxMobile.Controllers
     public class HomeController : Controller
     {
         //ContactUs code came from https://www.codeproject.com/Tips/1081578/How-to-Implement-Contact-Us-Page-in-ASP-NET-MVC-AS
+        //NOTE : sender's name is still not visible in mail and cannot reply to the sender yet --- to be continued
+
         [HttpGet]
         public IActionResult ContactUs()
         {
@@ -34,7 +36,7 @@ namespace LuxMobile.Controllers
                     
                     //Where mail will be sent 
                     msz.To.Add("lmb.ownerr@gmail.com");
-                    msz.Sender = vm.Name;
+                    
                     msz.Subject = vm.Subject;
                     msz.Body = vm.Message;
                     SmtpClient smtp = new SmtpClient();
