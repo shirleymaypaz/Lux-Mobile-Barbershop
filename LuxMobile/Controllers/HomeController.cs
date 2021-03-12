@@ -54,7 +54,7 @@ namespace LuxMobile.Controllers
                     smtp.Send(msz);
 
                     ModelState.Clear();
-                    ViewBag.Message = "Thank you for contacting us ";
+                    ViewBag.Message = "Thank you for contacting us. We'll get back to you as soon as possible.";
                 }
                 catch (Exception ex)
                 {
