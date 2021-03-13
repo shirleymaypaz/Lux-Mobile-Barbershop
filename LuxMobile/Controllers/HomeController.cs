@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
+using LuxMobile.Areas.Identity.Pages.Account;
 using System.Net.Mail;
 
 namespace LuxMobile.Controllers
@@ -83,7 +84,7 @@ namespace LuxMobile.Controllers
         //original home page
         public IActionResult Index()
         {
-            return View("Home");
+            return View();
         }
 
         public IActionResult Privacy()

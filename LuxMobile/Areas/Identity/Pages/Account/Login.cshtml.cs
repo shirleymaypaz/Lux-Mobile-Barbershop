@@ -44,8 +44,8 @@ namespace LuxMobile.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [Display(Name = "Contact Number")]
-            public string ContactNo { get; set; }
+            [Display(Name = "Username")]
+            public string UserName { get; set; }
 
             //[Required]
             //[EmailAddress]
@@ -66,7 +66,7 @@ namespace LuxMobile.Areas.Identity.Pages.Account
                 ModelState.AddModelError(string.Empty, ErrorMessage);
             }
 
-            returnUrl ??= Url.Content("~/Service/Home");
+            returnUrl ??= Url.Content("~/");
 
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
@@ -78,7 +78,7 @@ namespace LuxMobile.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl ??= Url.Content("~/Service/Home");
+            returnUrl ??= Url.Content("~/");
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         
@@ -86,7 +86,7 @@ namespace LuxMobile.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.ContactNo, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(Input.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");

@@ -55,6 +55,10 @@ namespace LuxMobile.Areas.Identity.Pages.Account
             public string LastName { get; set; }
 
             [Required]
+            [Display(Name = "Username")]
+            public string UserName { get; set; }
+
+            [Required]
             [Display(Name = "Contact Number")]
             public string ContactNo { get; set; }
 
@@ -92,7 +96,7 @@ namespace LuxMobile.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.ContactNo, Email = Input.Email, PhoneNumber = Input.ContactNo, FirstName = Input.FirstName, LastName = Input.LastName };
+                var user = new ApplicationUser { UserName = Input.UserName, Email = Input.Email, PhoneNumber = Input.ContactNo, FirstName = Input.FirstName, LastName = Input.LastName };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
