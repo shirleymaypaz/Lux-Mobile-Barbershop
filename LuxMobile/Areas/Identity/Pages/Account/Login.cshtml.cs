@@ -48,6 +48,11 @@ namespace LuxMobile.Areas.Identity.Pages.Account
             public string UserName { get; set; }
 
             //[Required]
+            //[Display(Name = "Contact Number")]
+            //[DataType(DataType.PhoneNumber)]
+            //public string ContactNo { get; set; }
+
+            //[Required]
             //[EmailAddress]
             //public string Email { get; set; }
 
